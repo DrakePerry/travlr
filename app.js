@@ -1,17 +1,18 @@
 const createError = require('http-errors');
-const express = require('express');
+const express = require('express-handlebars');
 const hbs = require('hbs');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+require('MongoDB').client;
 
 const indexRouter = require('./app_server/routes/index');
 const usersRouter = require('./app_server/routes/users');
 const travelRouter = require('./app_server/routes/travel');
 const { hasSubscribers } = require('diagnostics_channel');
+const { default: mongoose } = require("mongoose");
 
 var app = express();
-
 // Use Handlebars view engine
 app.set('view engine', '.hbs');
 // view engine setup

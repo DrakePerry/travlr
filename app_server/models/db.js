@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 const host = process.env.DB_HOST || '127.0.0.1'
-const dbURI = 'mongodb://${host}:27017/travlr';
-const readLine = require('readline');
+const dbURI = 'mongodb://localhost/travlr';
 
 const connect = () => {
-    setTimeout(() => mongoose.connect('mongodb://localhost:3000/data'));
+    setTimeout(() => mongoose.connect(dbURI, {
+        useNewURLParser: true
+    }), 1000);
 }
 
 
@@ -35,4 +36,4 @@ process.on('SIGTerm', () => {});
 connect();
 
 //  bring in the Mongoose schema
-require('./travel.js');
+require('./travlr');
