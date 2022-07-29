@@ -4,17 +4,17 @@ const apiOptions = {
     server: 'http://localhost:3000'
 }
 
-// /* GET travel view */
-// var fs = require('fs');
-// var trips = JSON.parse(fs.readFileSync('./data/trips.json', 'utf8'));
+/* GET travel view */
+var fs = require('fs');
+var trips = JSON.parse(fs.readFileSync('./data/trips.json', 'utf8'));
 
-// const travel = (req, res) => {
-//     res.render('travel', { title: 'Travlr Getaways'});
-// };
+const travel = (req, res) => {
+    res.render('travel', { title: 'Travlr Getaways'});
+};
 
-// module.exports = {
-//     travel
-// };
+module.exports = {
+    travel
+};
 
 const renderTravelList = (req, res, responseBody) => {
     let message = null;
@@ -49,7 +49,7 @@ const travelList = (req, res) => {
         requestOptions,
             (err, {statusCode }, body) =>
             {
-                iff (err) {
+                if (err) {
                     console.error(err);
                 }
                 renderTravelList(req, res, body);
