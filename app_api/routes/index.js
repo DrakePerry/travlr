@@ -1,27 +1,16 @@
-const express = require('express');
-const router = express.Router();
-const ctrlLocations = require('../controllers/trips');
-const ctrlReviews = require('../controllers/testemonials');
+var express = require('express');
+var router = express.Router();
 
-// trips
-router                                                       
-  .route('/trips')                                        
-  .get(ctrlLocations.tripsGet)                 
-  .post(ctrlLocations.tripsCreate);                       
-router
-  .route('/trips/:code')                            
-  .get(ctrlLocations.tripsGetONe)
-  .put(ctrlLocations.tripsCreate)
-  .delete(ctrlLocations.tripsDeleteOne);
+const tripsController = require('../controllers/trips');
 
-// reviews
 router
-  .route('/locations/:locationid/testemonials')
-  .post(ctrlReviews.testemonialsCreate);
-router
-  .route('/locations/:locationid/testemonials/:name')
-  .get(ctrlReviews.testemonialsReadOne)
-  .put(ctrlReviews.testemonialsUpdateOne)
-  .delete(ctrlReviews.testemonialsDeleteOne);
+    .route('/trips')
+    .get(tripsController.tripsList)
+    .post(tripsController.tripsList);
 
-module.exports = router;     
+router
+    .route('/trips:tripCode')
+    .get(tripsController.tripsList)
+    .post(tripsController.tripsFindByCode);
+
+module.exports = router;

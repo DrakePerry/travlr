@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const { async } = require('seed/lib/seed');
-const Model = mongoose.model('trips');
+const Trip = mongoose.model('trips');
 
 // GET: /trips - lists all of the trips
 const tripsList = async (req, res) => {
-    Model.find({}).exec((err, trips) => {
+    Trip.find({}).exec((err, trips) => {
         if (!trips) {
             return res
             .status(404)
@@ -22,7 +22,7 @@ const tripsList = async (req, res) => {
 
 // GET: /trips/:tripCode - returns a single trip
 const tripsFindByCode = async(req, res) => {
-    Model.find({ 'code': req.params.tripCode }).exec((err, trip) => {
+    Trip.find({ 'code': req.params.tripCode }).exec((err, trip) => {
             if (!trip) {
                 return res
                 .status(404)

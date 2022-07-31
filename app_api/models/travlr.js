@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 // define the trip schema
 const tripSchema = new mongoose.Schema({
  code: {type: String, required: true, index: true },
@@ -11,17 +12,17 @@ const tripSchema = new mongoose.Schema({
  description: {type: String, required: true}
 });
 
-// Define the blogs schema
-const testimonialSchema = new mongoose.Schema({
-    name: {type: String, required: true, index: true},
-    description: {type: String, required: true}
-});
+// // Define the blogs schema
+// const testimonialSchema = new mongoose.Schema({
+//     name: {type: String, required: true, index: true},
+//     description: {type: String, required: true}
+// });
 
-// Define blogs schema
-const blogSchema = new mongoose.Schema({
-    title: {type: String, required: true, index: true},
-    content: {type: String, required: true}
-});
+// // Define blogs schema
+// const blogSchema = new mongoose.Schema({
+//     title: {type: String, required: true, index: true},
+//     content: {type: String, required: true}
+// });
 
 mongoose.model('trips', tripSchema);
 //mongoose.model('testemonials', testimonialSchema);
