@@ -2,8 +2,8 @@ import { Injectable, Inject } from '@angular/core';
 import { Http } from '@angular/http';
 import { Trip } from '../../models/trip';
 import { User } from '../../models/user';
-import { AuthResponse } from 'models/authresponse';
-import { BROWSER_STORAGE } from './storage';
+import { AuthResponse } from '../../models/authresponse';
+import { BROWSER_STORAGE } from '../app/storage';
 
 @Injectable({
   providedIn: 'root'

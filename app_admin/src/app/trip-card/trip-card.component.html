@@ -9,5 +9,8 @@
       {{trip.length}} only {{trip.perPerson|currency:'USD':true}} per person
     </p>
     <p class="card-text" [innerHTML]="trip.description"></p>
+    <div *ngIf="isLoggedIn()">
+      <button (click)="editTrip(trip)" class = "AuthenticationService">Log In</button>
+    </div>"
   </div>
 </div>
