@@ -15,7 +15,7 @@ mongoose.connection.on('connected', () => {
 })
 
 mongoose.connection.on('error', () => {
-    console.log('error: ' + err);
+    console.log('error');
 })
 
 mongoose.connection.on('disconnected', () => {
@@ -41,3 +41,4 @@ connect();
 
 //  bring in the Mongoose schema
 require('./travlr');
+require('./user');
